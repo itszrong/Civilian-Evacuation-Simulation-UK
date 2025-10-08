@@ -3,6 +3,7 @@
 ## 🚨 AI-Powered Emergency Planning & Evacuation Simulation
 
 A comprehensive emergency planning platform that combines real-world geographic data, advanced pathfinding algorithms, and artificial intelligence to create realistic evacuation simulations for urban areas with a focus on London.
+<img width="800" height="929" alt="Screenshot 2025-10-08 at 15 35 30" src="https://github.com/user-attachments/assets/f1db3afd-cbd9-4b3c-89c0-9c732de40a74" />
 
 ## 🌟 Key Features
 
