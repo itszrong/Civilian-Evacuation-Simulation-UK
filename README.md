@@ -29,7 +29,7 @@ A comprehensive emergency planning platform that combines real-world geographic 
 - Python 3.10+
 - Node.js 16+
 - npm or yarn
-- uv (Python package manager) - will be installed automatically
+- uv (Python package manager) - install with: `pip install uv`
 
 ### Installation
 
@@ -38,8 +38,15 @@ A comprehensive emergency planning platform that combines real-world geographic 
 git clone <repository-url>
 cd Civilian-Evacuation-Simulation-UK
 
-# Setup all dependencies (Python + Node.js + Services)
-make setup
+# Backend setup with uv
+uv venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install -r requirements.txt
+
+# Frontend setup
+cd frontend
+npm install
+cd ..
 ```
 
 ### Configuration
