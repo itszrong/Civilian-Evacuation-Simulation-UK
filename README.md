@@ -86,7 +86,7 @@ make clean         # Clean up build artifacts and caches
 make help          # Show all available commands
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── backend/              # FastAPI backend application
