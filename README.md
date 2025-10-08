@@ -1,11 +1,11 @@
 # London Evacuation Planning System
 
-## 🚨 AI-Powered Emergency Planning & Evacuation Simulation
+## AI-Powered Emergency Planning & Evacuation Simulation
 
 A comprehensive emergency planning platform that combines real-world geographic data, advanced pathfinding algorithms, and artificial intelligence to create realistic evacuation simulations for urban areas with a focus on London.
 <img width="800" height="929" alt="Screenshot 2025-10-08 at 15 35 30" src="https://github.com/user-attachments/assets/f1db3afd-cbd9-4b3c-89c0-9c732de40a74" />
 
-## 🌟 Key Features
+## Key Features
 
 ### Core Capabilities
 - **Real-World Geographic Integration**: OpenStreetMap data via OSMnx for accurate street networks
@@ -24,7 +24,7 @@ A comprehensive emergency planning platform that combines real-world geographic 
 - **OSMnx Integration**: Street network analysis and routing
 - **Scalable Architecture**: Async processing with configurable concurrency
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.10+
@@ -105,7 +105,7 @@ make help          # Show all available commands
 └── local_s3/           # Local storage for artifacts
 ```
 
-## 📚 Documentation
+## Documentation
 
 Comprehensive documentation is available in the [`docs/`](docs/) directory:
 
@@ -126,7 +126,7 @@ Comprehensive documentation is available in the [`docs/`](docs/) directory:
 
 See **[Documentation Index](docs/INDEX.md)** for complete documentation listing.
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ### Backend Services
 - **Simulation Engine**: OSMnx-based evacuation modeling
@@ -142,7 +142,7 @@ See **[Documentation Index](docs/INDEX.md)** for complete documentation listing.
 - **State Management**: React hooks and context
 - **API Integration**: Axios-based REST client
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests (backend + frontend)
@@ -153,7 +153,7 @@ make test-backend    # Backend tests only
 make test-frontend   # Frontend tests only
 ```
 
-## 📊 Use Cases
+## Use Cases
 
 - **Emergency Planning**: Simulate evacuation scenarios for disaster preparedness
 - **Infrastructure Assessment**: Identify bottlenecks and capacity issues
@@ -161,7 +161,7 @@ make test-frontend   # Frontend tests only
 - **Training**: Educate emergency responders on evacuation dynamics
 - **Research**: Study urban evacuation patterns and behaviors
 
-## 🔒 Security & Compliance
+## Security & Compliance
 
 - Environment-based configuration management
 - API key protection
@@ -169,7 +169,7 @@ make test-frontend   # Frontend tests only
 - GOV.UK design standards compliance
 - Secure external service integration (Twilio)
 
-## 🤝 Contributing
+## Contributing
 
 For development contributions:
 Review the [Technical Implementation Guide](docs/TECHNICAL_IMPLEMENTATION_GUIDE.md)
