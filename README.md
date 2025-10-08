@@ -10,7 +10,7 @@ A comprehensive emergency planning platform that combines real-world geographic 
 ### Core Capabilities
 - **Real-World Geographic Integration**: OpenStreetMap data via OSMnx for accurate street networks
 - **AI-Powered Scenario Generation**: Natural language interface for creating evacuation scenarios
-- **Advanced Agent-Based Simulation**: A* pathfinding with realistic behavioral modeling
+- **Advanced Agent-Based Simulation**: A* pathfindin, biased random walks and mesa agent based modeling
 - **Interactive Visualizations**: Folium and Mesa-based real-time visualization
 - **Multi-Borough Support**: Comprehensive coverage of all 33 London boroughs
 - **Decision Support System**: AI-generated recommendations and analysis
