@@ -2,7 +2,7 @@
 
 ## Quick Reference for Developers
 
-This guide provides technical details for developers working with the real simulation data system after the fake data elimination project.
+This guide provides technical details for developers working with the real simulation data system.
 
 ## Architecture Overview
 
@@ -56,12 +56,12 @@ interface ScenarioResult {
 
 ### Expected Value Ranges
 
-| Metric | Real Range | Fake Pattern (Eliminated) |
-|--------|------------|---------------------------|
-| **Clearance Time** | 13.1 - 79.5 min | Random 30-150 min |
-| **Fairness Index** | 0.443 - 0.647 | Random 0.6-1.0 |
-| **Robustness** | 0.907 - 0.98 | Random 0.5-1.0 |
-| **Population** | 50,000 - 55,000 | Fixed 50,000 |
+| Metric              | Real Range         |
+|---------------------|-------------------|
+| **Clearance Time**  | 13.1 - 79.5 min   |
+| **Fairness Index**  | 0.443 - 0.647     |
+| **Robustness**      | 0.907 - 0.98      |
+| **Population**      | 50,000 - 55,000   |
 
 ## Frontend Implementation Patterns
 
@@ -84,18 +84,6 @@ const generateScenarioComparison = () => {
 };
 ```
 
-### ❌ Incorrect Patterns (Eliminated)
-
-```typescript
-// DON'T: Use configuration values (identical across scenarios)
-const clearanceTime = scenario?.expected_clearance_time || 45;
-
-// DON'T: Generate fake data
-const clearanceTime = Math.random() * 120 + 30;
-
-// DON'T: Use fallback endpoints
-const response = await fetch(`/api/runs/${runId}/scenarios`); // Returns nulls
-```
 
 ### Data Loading Best Practices
 
@@ -149,7 +137,7 @@ async def _run_multiple_varied_simulations_async(
         
         scenarios.append({
             'scenario_name': f'Scenario {i + 1}',
-            'metrics': real_metrics,  # REAL values, not fake
+            'metrics': real_metrics,  # REAL values
             'expected_clearance_time': real_metrics['clearance_time']  # Store real value
         })
     
@@ -237,7 +225,7 @@ console.log('🔍 Scenario metrics verification:', scenarios.map(s => ({
 })));
 ```
 
-### Real vs Fake Data Detection
+### Data Detection
 
 ```typescript
 const validateRealData = (scenarios: ScenarioResult[]): boolean => {
@@ -331,7 +319,7 @@ const handleDataLoading = async (runId: string) => {
     
     // Validate real data
     if (!validateRealData(data.scenarios)) {
-      console.warn('⚠️ Received potentially fake data, check simulation pipeline');
+      console.warn('⚠️ Received potentially old data, check simulation pipeline');
     }
     
     return data;
@@ -360,17 +348,6 @@ describe('Real Data Validation', () => {
     
     expect(validateRealData(realScenarios)).toBe(true);
   });
-  
-  test('should reject fake scenario data', () => {
-    const fakeScenarios = [
-      { metrics: { clearance_time: 45.7, fairness_index: 0.443 } },
-      { metrics: { clearance_time: 45.7, fairness_index: 0.443 } }, // Identical
-      { metrics: { clearance_time: 45.7, fairness_index: 0.443 } }  // Identical
-    ];
-    
-    expect(validateRealData(fakeScenarios)).toBe(false);
-  });
-});
 ```
 
 ## Migration Checklist

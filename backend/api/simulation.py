@@ -456,7 +456,7 @@ async def get_city_visualisation(
             # Load graph for Mesa visualization generation
             graph = await multi_city_service.graph_loader.load_graph_async(city)
 
-            # Extract REAL scenarios from simulation result - NO FAKE DATA
+            # Extract REAL scenarios from simulation result
             scenarios = []
             real_scenarios = real_simulation_result.get('scenarios', [])
             
