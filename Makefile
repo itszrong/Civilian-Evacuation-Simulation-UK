@@ -45,10 +45,12 @@ setup:
 	cd services/external/dspy_agents && python3 -m venv venv && ./venv/bin/pip install -r requirements.txt
 	@echo ""
 	@echo "📦 Installing frontend dependencies..."
-	cd frontend && npm install
+	cd frontend && npm install --legacy-peer-deps
 	@echo ""
 	@echo "📁 Creating data directories..."
 	mkdir -p data/rss data/goldens data/evals data/simulations
+	@echo "📁 Creating frontend public directory..."
+	mkdir -p frontend/public
 	@echo ""
 	@echo "✅ Setup complete! Run 'make services' to start all microservices."
 
@@ -77,7 +79,7 @@ run_ui:
 	@echo "   - /results   - View run results and decision memos"
 	@echo "   - /sources   - Manage data sources and feeds"
 	@echo ""
-	cd frontend && npm start
+	cd frontend && npm start --legacy-peer-deps
 
 # Run RSS ingestion service
 run_rss:
@@ -86,7 +88,7 @@ run_rss:
 	@echo "🔄 Refresh interval: 15 minutes"
 	@echo "💾 Storage: data/rss/latest.json"
 	@echo ""
-	cd services/external/rss_ingestion && python main.py
+	cd services/external/rss_ingestion && ../../../.venv/bin/python main.py
 
 # Run DSPy agents service
 run_dspy:
@@ -95,7 +97,7 @@ run_dspy:
 	@echo "📋 Goldens: data/goldens/"
 	@echo "📊 Evals: data/evals/"
 	@echo ""
-	cd services/external/dspy_agents && python main.py
+	cd services/external/dspy_agents && ../../../.venv/bin/python main.py
 
 # Start ALL microservices in parallel
 services:

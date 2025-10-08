@@ -38,15 +38,8 @@ A comprehensive emergency planning platform that combines real-world geographic 
 git clone <repository-url>
 cd Civilian-Evacuation-Simulation-UK
 
-# Backend setup with uv
-uv venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-uv pip install -r requirements.txt
-
-# Frontend setup
-cd frontend
-npm install
-cd ..
+# Setup all dependencies (Python + Node.js + Services)
+make setup
 ```
 
 ### Configuration
