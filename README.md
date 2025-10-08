@@ -29,23 +29,17 @@ A comprehensive emergency planning platform that combines real-world geographic 
 - Python 3.10+
 - Node.js 16+
 - npm or yarn
+- uv (Python package manager) - will be installed automatically
 
 ### Installation
 
 ```bash
 # Clone repository
 git clone <repository-url>
-cd Civilian-Evacuation-Simulation-Manhattan-NYC
+cd Civilian-Evacuation-Simulation-UK
 
-# Backend setup
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-
-# Frontend setup
-cd frontend
-npm install
-cd ..
+# Setup all dependencies (Python + Node.js + Services)
+make setup
 ```
 
 ### Configuration
@@ -63,15 +57,33 @@ cp .env.template .env
 ### Running the Application
 
 ```bash
-# Start backend (from project root)
-python backend/main.py
+# Option 1: Start all services (recommended)
+make services
 
-# Start frontend (in new terminal)
-cd frontend
-npm start
+# Option 2: Start backend and frontend only
+npm run build && npm run start
+
+# Option 3: Start individual services
+make run          # Backend only
+make run_ui       # Frontend only
 
 # Access application
 open http://localhost:3000
+```
+
+### Available Commands
+
+The project includes a comprehensive Makefile with the following commands:
+
+```bash
+make setup         # Install all dependencies (Python + Node.js + Services)
+make services      # Start ALL services (RSS, DSPy, Backend, Frontend)
+make dev           # Start backend and frontend only
+make run           # Start the FastAPI backend server
+make run_ui        # Start the React frontend
+make test          # Run tests for both backend and frontend
+make clean         # Clean up build artifacts and caches
+make help          # Show all available commands
 ```
 
 ## 📁 Project Structure
@@ -133,12 +145,12 @@ See **[Documentation Index](docs/INDEX.md)** for complete documentation listing.
 ## 🧪 Testing
 
 ```bash
-# Run backend tests
-pytest backend/tests/
+# Run all tests (backend + frontend)
+make test
 
-# Run frontend tests
-cd frontend
-npm test
+# Run individual test suites
+make test-backend    # Backend tests only
+make test-frontend   # Frontend tests only
 ```
 
 ## 📊 Use Cases
