@@ -35,6 +35,9 @@ setup:
 	@echo "📦 Installing Python dependencies..."
 	./.venv/bin/uv pip install -r requirements.txt
 	@echo ""
+	@echo "📦 Installing root dependencies..."
+	npm install
+	@echo ""
 	@echo "📦 Setting up RSS ingestion service..."
 	cd services/external/rss_ingestion && uv venv venv && ./venv/bin/uv pip install -r requirements.txt
 	@echo ""
