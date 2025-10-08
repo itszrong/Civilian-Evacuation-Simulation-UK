@@ -30,19 +30,16 @@ help:
 # Setup - Install all dependencies
 setup:
 	@echo "🐍 Setting up Python environment..."
-	python3 -m venv .venv
-	@echo ""
-	@echo "📦 Installing uv package manager..."
-	source .venv/bin/activate && pip install uv
+	uv venv .venv
 	@echo ""
 	@echo "📦 Installing Python dependencies..."
 	./.venv/bin/uv pip install -r requirements.txt
 	@echo ""
 	@echo "📦 Setting up RSS ingestion service..."
-	cd services/external/rss_ingestion && python3 -m venv venv && ./venv/bin/pip install -r requirements.txt
+	cd services/external/rss_ingestion && uv venv venv && ./venv/bin/uv pip install -r requirements.txt
 	@echo ""
 	@echo "📦 Setting up DSPy agents service..."
-	cd services/external/dspy_agents && python3 -m venv venv && ./venv/bin/pip install -r requirements.txt
+	cd services/external/dspy_agents && uv venv venv && ./venv/bin/uv pip install -r requirements.txt
 	@echo ""
 	@echo "📦 Installing frontend dependencies..."
 	cd frontend && npm install --legacy-peer-deps

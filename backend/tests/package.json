@@ -1,0 +1,48 @@
+{
+  "name": "london-evacuation-planning-tool",
+  "version": "1.0.0",
+  "description": "London-focused evacuation planning tool with agentic workflows and real-time simulation",
+  "private": true,
+  "scripts": {
+    "start": "make dev",
+    "setup": "make setup",
+    "setup-full": "make setup-full",
+    "backend": "make run",
+    "frontend": "make run_ui",
+    "test": "make test",
+    "clean": "make clean",
+    "build": "make build",
+    "health": "make health",
+    "status": "make status",
+    "lint": "make lint",
+    "format": "make format"
+  },
+  "dependencies": {
+    "govuk-frontend": "^5.11.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "evacuation",
+    "emergency-planning",
+    "london",
+    "simulation",
+    "agentic-ai",
+    "policy",
+    "civic-planning",
+    "networkx",
+    "osmnx",
+    "fastapi",
+    "react",
+    "sse",
+    "rag"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/london-evacuation-planning.git"
+  },
+  "author": "Evacuation Planning Team",
+  "license": "MIT"
+}
