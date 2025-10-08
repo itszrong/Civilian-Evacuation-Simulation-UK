@@ -79,7 +79,6 @@ The project includes a comprehensive Makefile with the following commands:
 ```bash
 make setup         # Install all dependencies (Python + Node.js + Services)
 make services      # Start ALL services (RSS, DSPy, Backend, Frontend)
-make dev           # Start backend and frontend only
 make run           # Start the FastAPI backend server
 make run_ui        # Start the React frontend
 make test          # Run tests for both backend and frontend
@@ -173,23 +172,4 @@ make test-frontend   # Frontend tests only
 ## 🤝 Contributing
 
 For development contributions:
-1. Review the [Technical Implementation Guide](docs/TECHNICAL_IMPLEMENTATION_GUIDE.md)
-2. Follow existing code patterns and standards
-3. Ensure tests pass before submitting changes
-4. Update documentation for new features
-
-## 📝 License
-
-See LICENSE file for details.
-
-## 📞 Support
-
-For questions or issues:
-- Review the [Documentation](docs/INDEX.md)
-- Check the [Quick Start Guide](docs/QUICK_START.md)
-- Consult the [User Guide](docs/USER_GUIDE.md)
-
----
-
-**System Version**: 1.0  
-**Last Updated**: October 2025
+Review the [Technical Implementation Guide](docs/TECHNICAL_IMPLEMENTATION_GUIDE.md)
