@@ -1,0 +1,1017 @@
+{
+  "metadata": {
+    "generated_at": "2025-10-08T01:24:52.990162",
+    "source": "UK Mass Evacuation Framework v3.0 (June 2018)",
+    "num_examples": 14,
+    "num_base_scenarios": 6,
+    "golden_standards_count": 5
+  },
+  "golden_standards": {
+    "mass_flood_rwc": {
+      "description": "Reasonable worst-case fluvial flood affecting multiple boroughs",
+      "expected_metrics": {
+        "evacuees_total": [
+          130000,
+          170000
+        ],
+        "assisted_evacuees": [
+          50000,
+          60000
+        ],
+        "clearance_p95_minutes": [
+          360,
+          480
+        ],
+        "clearance_p50_minutes": [
+          180,
+          300
+        ],
+        "assisted_completion_rate": [
+          0.9,
+          1.0
+        ],
+        "decision_latency_minutes_max": 60,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 120
+      },
+      "scenario_properties": {
+        "scale": "mass",
+        "hazard_type": "flood",
+        "warning_time": "rising_tide",
+        "governance": [
+          "SCG",
+          "ESCG",
+          "LLACC"
+        ],
+        "phases": [
+          "initiate",
+          "alert",
+          "move",
+          "shelter",
+          "return"
+        ]
+      }
+    },
+    "chemical_sudden": {
+      "description": "Large sudden-impact chemical release with immediate cordons",
+      "expected_metrics": {
+        "people_affected": [
+          40000,
+          80000
+        ],
+        "clearance_p95_minutes": [
+          240,
+          420
+        ],
+        "decision_latency_minutes_max": 30,
+        "self_evac_started_within_minutes_max": 15,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 90
+      },
+      "scenario_properties": {
+        "scale": "large",
+        "hazard_type": "chemical",
+        "warning_time": "sudden_impact",
+        "cbrn_protocols": true,
+        "decision_context": "police_strategic_pre_SCG"
+      }
+    },
+    "uxo_medium": {
+      "description": "Medium-scale planned UXO evacuation (rising-tide style)",
+      "expected_metrics": {
+        "people_affected": [
+          10000,
+          25000
+        ],
+        "clearance_p95_minutes": [
+          180,
+          360
+        ],
+        "scg_established_minutes_max": 120,
+        "queue_len_p95_max": 150,
+        "platform_overcap_minutes_max": 60
+      },
+      "scenario_properties": {
+        "scale": "medium",
+        "hazard_type": "UXO",
+        "warning_time": "planned",
+        "governance": [
+          "SCG",
+          "ESCG",
+          "LLACC"
+        ]
+      }
+    },
+    "local_gas_small": {
+      "description": "Small, borough-led local gas leak evacuation",
+      "expected_metrics": {
+        "people_affected": [
+          200,
+          1000
+        ],
+        "clearance_p95_minutes": [
+          60,
+          180
+        ],
+        "queue_len_p95_max": 80,
+        "platform_overcap_minutes_max": 30
+      },
+      "scenario_properties": {
+        "scale": "small",
+        "hazard_type": "gas_leak",
+        "warning_time": "immediate",
+        "governance": [
+          "local_control"
+        ],
+        "scg_required": false
+      }
+    },
+    "central_terror_large": {
+      "description": "Large sudden-impact, multi-site cordons in central area",
+      "expected_metrics": {
+        "people_affected": [
+          60000,
+          100000
+        ],
+        "clearance_p95_minutes": [
+          300,
+          540
+        ],
+        "decision_latency_minutes_max": 30,
+        "responder_absenteeism_prop": [
+          0.1,
+          0.2
+        ],
+        "queue_len_p95_max": 220,
+        "platform_overcap_minutes_max": 120
+      },
+      "scenario_properties": {
+        "scale": "large",
+        "hazard_type": "terrorist_event",
+        "warning_time": "sudden_impact",
+        "multi_site": true,
+        "decision_context": "police_strategic_pre_SCG"
+      }
+    }
+  },
+  "framework_scenarios": {
+    "mass_fluvial_flood_rwc": {
+      "name": "Thames fluvial flood \u2013 pan-London RWC",
+      "hazard_type": "flood",
+      "subtype": "fluvial",
+      "scale": "mass",
+      "people_affected": 150000,
+      "assisted_evacuation": 55000,
+      "duration_minutes": 1440,
+      "governance": {
+        "SCG": true,
+        "ESCG": true,
+        "LLACC": true
+      },
+      "warning_time": "rising_tide",
+      "compliance": 0.7,
+      "modes": [
+        "walk",
+        "bus",
+        "rail",
+        "car",
+        "river"
+      ]
+    },
+    "large_chemical_release": {
+      "name": "Central London chemical release \u2013 sudden impact",
+      "hazard_type": "chemical",
+      "subtype": "toxic_release",
+      "scale": "large",
+      "people_affected": 60000,
+      "assisted_evacuation": 18000,
+      "duration_minutes": 480,
+      "warning_time": "sudden_impact",
+      "cbrn_required": true,
+      "compliance": 0.6,
+      "modes": [
+        "walk",
+        "bus",
+        "rail",
+        "car"
+      ]
+    },
+    "medium_uxo_planned": {
+      "name": "Docklands UXO cordon \u2013 planned lift and evacuate",
+      "hazard_type": "UXO",
+      "subtype": "unexploded_ordnance",
+      "scale": "medium",
+      "people_affected": 18000,
+      "duration_minutes": 360,
+      "warning_time": "planned",
+      "compliance": 0.85,
+      "modes": [
+        "walk",
+        "bus",
+        "rail"
+      ]
+    },
+    "small_gas_leak": {
+      "name": "Local gas leak \u2013 Southwark high street",
+      "hazard_type": "gas_leak",
+      "subtype": "natural_gas",
+      "scale": "small",
+      "people_affected": 800,
+      "duration_minutes": 180,
+      "warning_time": "immediate",
+      "governance": {
+        "local_control": true
+      },
+      "compliance": 0.9,
+      "modes": [
+        "walk",
+        "bus"
+      ]
+    },
+    "terrorist_sudden_impact": {
+      "name": "Central sudden impact \u2013 multi-site cordons",
+      "hazard_type": "terrorist_event",
+      "subtype": "multi_site",
+      "scale": "large",
+      "people_affected": 80000,
+      "duration_minutes": 720,
+      "warning_time": "sudden_impact",
+      "multi_site": true,
+      "compliance": 0.55,
+      "modes": [
+        "walk",
+        "bus",
+        "rail",
+        "car"
+      ]
+    },
+    "rising_tide_flood": {
+      "name": "Rising-tide flood \u2013 Greenwich/Deptford reception",
+      "hazard_type": "flood",
+      "subtype": "rising_tide",
+      "scale": "mass",
+      "people_affected": 110000,
+      "duration_minutes": 720,
+      "warning_time": "rising_tide",
+      "governance": {
+        "SCG": true,
+        "ESCG": true,
+        "LLACC": true
+      },
+      "compliance": 0.75,
+      "modes": [
+        "walk",
+        "bus",
+        "rail",
+        "river"
+      ]
+    }
+  },
+  "dataset": [
+    {
+      "scenario_intent": "Thames fluvial flood \u2013 pan-London RWC",
+      "hazard_type": "flood",
+      "expected_properties": {
+        "scale": "mass",
+        "people_affected_range": [
+          120000,
+          180000
+        ],
+        "duration_minutes_range": [
+          1007,
+          1872
+        ],
+        "warning_time": "rising_tide",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car",
+          "river"
+        ]
+      },
+      "golden_metrics": {
+        "evacuees_total": [
+          130000,
+          170000
+        ],
+        "assisted_evacuees": [
+          50000,
+          60000
+        ],
+        "clearance_p95_minutes": [
+          360,
+          480
+        ],
+        "clearance_p50_minutes": [
+          180,
+          300
+        ],
+        "assisted_completion_rate": [
+          0.9,
+          1.0
+        ],
+        "decision_latency_minutes_max": 60,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 120
+      },
+      "framework_compliance": {
+        "governance_correct": {
+          "SCG": true,
+          "ESCG": true,
+          "LLACC": true
+        },
+        "phases_required": [
+          "initiate",
+          "alert",
+          "move",
+          "shelter",
+          "return"
+        ],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "mass_fluvial_flood_rwc"
+    },
+    {
+      "scenario_intent": "Thames fluvial flood \u2013 pan-London RWC (low compliance)",
+      "hazard_type": "flood",
+      "expected_properties": {
+        "scale": "mass",
+        "people_affected_range": [
+          120000,
+          180000
+        ],
+        "duration_minutes_range": [
+          1007,
+          1872
+        ],
+        "warning_time": "rising_tide",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car",
+          "river"
+        ]
+      },
+      "golden_metrics": {
+        "evacuees_total": [
+          130000,
+          170000
+        ],
+        "assisted_evacuees": [
+          50000,
+          60000
+        ],
+        "clearance_p95_minutes": [
+          360,
+          480
+        ],
+        "clearance_p50_minutes": [
+          180,
+          300
+        ],
+        "assisted_completion_rate": [
+          0.9,
+          1.0
+        ],
+        "decision_latency_minutes_max": 60,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 120
+      },
+      "framework_compliance": {
+        "governance_correct": {
+          "SCG": true,
+          "ESCG": true,
+          "LLACC": true
+        },
+        "phases_required": [
+          "initiate",
+          "alert",
+          "move",
+          "shelter",
+          "return"
+        ],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "mass_fluvial_flood_rwc"
+    },
+    {
+      "scenario_intent": "Central London chemical release \u2013 sudden impact",
+      "hazard_type": "chemical",
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          62400,
+          93600
+        ],
+        "duration_minutes_range": [
+          336,
+          624
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          40000,
+          80000
+        ],
+        "clearance_p95_minutes": [
+          240,
+          420
+        ],
+        "decision_latency_minutes_max": 30,
+        "self_evac_started_within_minutes_max": 15,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 90
+      },
+      "framework_compliance": {
+        "governance_correct": {},
+        "phases_required": [],
+        "cbrn_protocols": true
+      },
+      "source": "framework_template",
+      "template_name": "large_chemical_release"
+    },
+    {
+      "scenario_intent": "Central London chemical release \u2013 sudden impact (increased severity)",
+      "hazard_type": "chemical",
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          62400,
+          93600
+        ],
+        "duration_minutes_range": [
+          336,
+          624
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          40000,
+          80000
+        ],
+        "clearance_p95_minutes": [
+          240,
+          420
+        ],
+        "decision_latency_minutes_max": 30,
+        "self_evac_started_within_minutes_max": 15,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 90
+      },
+      "framework_compliance": {
+        "governance_correct": {},
+        "phases_required": [],
+        "cbrn_protocols": true
+      },
+      "source": "framework_template",
+      "template_name": "large_chemical_release"
+    },
+    {
+      "scenario_intent": "Central London chemical release \u2013 sudden impact (low compliance)",
+      "hazard_type": "chemical",
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          62400,
+          93600
+        ],
+        "duration_minutes_range": [
+          336,
+          624
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          40000,
+          80000
+        ],
+        "clearance_p95_minutes": [
+          240,
+          420
+        ],
+        "decision_latency_minutes_max": 30,
+        "self_evac_started_within_minutes_max": 15,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 90
+      },
+      "framework_compliance": {
+        "governance_correct": {},
+        "phases_required": [],
+        "cbrn_protocols": true
+      },
+      "source": "framework_template",
+      "template_name": "large_chemical_release"
+    },
+    {
+      "scenario_intent": "Docklands UXO cordon \u2013 planned lift and evacuate",
+      "hazard_type": "UXO",
+      "expected_properties": {
+        "scale": "medium",
+        "people_affected_range": [
+          14400,
+          21600
+        ],
+        "duration_minutes_range": [
+          251,
+          468
+        ],
+        "warning_time": "planned",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          10000,
+          25000
+        ],
+        "clearance_p95_minutes": [
+          180,
+          360
+        ],
+        "scg_established_minutes_max": 120,
+        "queue_len_p95_max": 150,
+        "platform_overcap_minutes_max": 60
+      },
+      "framework_compliance": {
+        "governance_correct": {},
+        "phases_required": [],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "medium_uxo_planned"
+    },
+    {
+      "scenario_intent": "Docklands UXO cordon \u2013 planned lift and evacuate (low compliance)",
+      "hazard_type": "UXO",
+      "expected_properties": {
+        "scale": "medium",
+        "people_affected_range": [
+          14400,
+          21600
+        ],
+        "duration_minutes_range": [
+          251,
+          468
+        ],
+        "warning_time": "planned",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          10000,
+          25000
+        ],
+        "clearance_p95_minutes": [
+          180,
+          360
+        ],
+        "scg_established_minutes_max": 120,
+        "queue_len_p95_max": 150,
+        "platform_overcap_minutes_max": 60
+      },
+      "framework_compliance": {
+        "governance_correct": {},
+        "phases_required": [],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "medium_uxo_planned"
+    },
+    {
+      "scenario_intent": "Local gas leak \u2013 Southwark high street",
+      "hazard_type": "gas_leak",
+      "expected_properties": {
+        "scale": "small",
+        "people_affected_range": [
+          640,
+          960
+        ],
+        "duration_minutes_range": [
+          125,
+          234
+        ],
+        "warning_time": "immediate",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          200,
+          1000
+        ],
+        "clearance_p95_minutes": [
+          60,
+          180
+        ],
+        "queue_len_p95_max": 80,
+        "platform_overcap_minutes_max": 30
+      },
+      "framework_compliance": {
+        "governance_correct": {
+          "local_control": true
+        },
+        "phases_required": [],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "small_gas_leak"
+    },
+    {
+      "scenario_intent": "Local gas leak \u2013 Southwark high street (low compliance)",
+      "hazard_type": "gas_leak",
+      "expected_properties": {
+        "scale": "small",
+        "people_affected_range": [
+          640,
+          960
+        ],
+        "duration_minutes_range": [
+          125,
+          234
+        ],
+        "warning_time": "immediate",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          200,
+          1000
+        ],
+        "clearance_p95_minutes": [
+          60,
+          180
+        ],
+        "queue_len_p95_max": 80,
+        "platform_overcap_minutes_max": 30
+      },
+      "framework_compliance": {
+        "governance_correct": {
+          "local_control": true
+        },
+        "phases_required": [],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "small_gas_leak"
+    },
+    {
+      "scenario_intent": "Central sudden impact \u2013 multi-site cordons",
+      "hazard_type": "terrorist_event",
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          83200,
+          124800
+        ],
+        "duration_minutes_range": [
+          503,
+          936
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          60000,
+          100000
+        ],
+        "clearance_p95_minutes": [
+          300,
+          540
+        ],
+        "decision_latency_minutes_max": 30,
+        "responder_absenteeism_prop": [
+          0.1,
+          0.2
+        ],
+        "queue_len_p95_max": 220,
+        "platform_overcap_minutes_max": 120
+      },
+      "framework_compliance": {
+        "governance_correct": {},
+        "phases_required": [],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "terrorist_sudden_impact"
+    },
+    {
+      "scenario_intent": "Central sudden impact \u2013 multi-site cordons (increased severity)",
+      "hazard_type": "terrorist_event",
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          83200,
+          124800
+        ],
+        "duration_minutes_range": [
+          503,
+          936
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          60000,
+          100000
+        ],
+        "clearance_p95_minutes": [
+          300,
+          540
+        ],
+        "decision_latency_minutes_max": 30,
+        "responder_absenteeism_prop": [
+          0.1,
+          0.2
+        ],
+        "queue_len_p95_max": 220,
+        "platform_overcap_minutes_max": 120
+      },
+      "framework_compliance": {
+        "governance_correct": {},
+        "phases_required": [],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "terrorist_sudden_impact"
+    },
+    {
+      "scenario_intent": "Central sudden impact \u2013 multi-site cordons (low compliance)",
+      "hazard_type": "terrorist_event",
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          83200,
+          124800
+        ],
+        "duration_minutes_range": [
+          503,
+          936
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "golden_metrics": {
+        "people_affected": [
+          60000,
+          100000
+        ],
+        "clearance_p95_minutes": [
+          300,
+          540
+        ],
+        "decision_latency_minutes_max": 30,
+        "responder_absenteeism_prop": [
+          0.1,
+          0.2
+        ],
+        "queue_len_p95_max": 220,
+        "platform_overcap_minutes_max": 120
+      },
+      "framework_compliance": {
+        "governance_correct": {},
+        "phases_required": [],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "terrorist_sudden_impact"
+    },
+    {
+      "scenario_intent": "Rising-tide flood \u2013 Greenwich/Deptford reception",
+      "hazard_type": "flood",
+      "expected_properties": {
+        "scale": "mass",
+        "people_affected_range": [
+          88000,
+          132000
+        ],
+        "duration_minutes_range": [
+          503,
+          936
+        ],
+        "warning_time": "rising_tide",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "river"
+        ]
+      },
+      "golden_metrics": {
+        "evacuees_total": [
+          130000,
+          170000
+        ],
+        "assisted_evacuees": [
+          50000,
+          60000
+        ],
+        "clearance_p95_minutes": [
+          360,
+          480
+        ],
+        "clearance_p50_minutes": [
+          180,
+          300
+        ],
+        "assisted_completion_rate": [
+          0.9,
+          1.0
+        ],
+        "decision_latency_minutes_max": 60,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 120
+      },
+      "framework_compliance": {
+        "governance_correct": {
+          "SCG": true,
+          "ESCG": true,
+          "LLACC": true
+        },
+        "phases_required": [
+          "initiate",
+          "alert",
+          "move",
+          "shelter",
+          "return"
+        ],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "rising_tide_flood"
+    },
+    {
+      "scenario_intent": "Rising-tide flood \u2013 Greenwich/Deptford reception (low compliance)",
+      "hazard_type": "flood",
+      "expected_properties": {
+        "scale": "mass",
+        "people_affected_range": [
+          88000,
+          132000
+        ],
+        "duration_minutes_range": [
+          503,
+          936
+        ],
+        "warning_time": "rising_tide",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "river"
+        ]
+      },
+      "golden_metrics": {
+        "evacuees_total": [
+          130000,
+          170000
+        ],
+        "assisted_evacuees": [
+          50000,
+          60000
+        ],
+        "clearance_p95_minutes": [
+          360,
+          480
+        ],
+        "clearance_p50_minutes": [
+          180,
+          300
+        ],
+        "assisted_completion_rate": [
+          0.9,
+          1.0
+        ],
+        "decision_latency_minutes_max": 60,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 120
+      },
+      "framework_compliance": {
+        "governance_correct": {
+          "SCG": true,
+          "ESCG": true,
+          "LLACC": true
+        },
+        "phases_required": [
+          "initiate",
+          "alert",
+          "move",
+          "shelter",
+          "return"
+        ],
+        "cbrn_protocols": false
+      },
+      "source": "framework_template",
+      "template_name": "rising_tide_flood"
+    }
+  ]
+}

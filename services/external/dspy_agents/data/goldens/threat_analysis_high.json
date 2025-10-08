@@ -1,0 +1,16 @@
+{
+  "name": "threat_analysis_high",
+  "timestamp": "2025-10-07T17:54:51.349020+00:00",
+  "input": {
+    "news_summary": "Major fire in central London. Thousands evacuating. Smoke visible across city.",
+    "city": "London"
+  },
+  "expected_output": {
+    "threat_level": "high",
+    "key_factors": [
+      "Major fire",
+      "Central location",
+      "Large-scale evacuation needed"
+    ]
+  }
+}

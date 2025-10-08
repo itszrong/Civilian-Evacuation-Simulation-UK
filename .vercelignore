@@ -1,0 +1,68 @@
+# Exclude large directories and files from Vercel deployment
+
+# Backend heavy dependencies (we use simplified API instead)
+backend/
+external_deps/
+testing/
+docs/
+
+# Data files and documents
+datasets/
+research/
+*.xlsx
+*.pdf
+*.csv
+*.json
+
+# Node modules and build artifacts
+node_modules/
+frontend/node_modules/
+**/node_modules/
+
+# Python cache and compiled files
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Build and cache directories
+.next/
+.nuxt/
+dist/
+build/
+.cache/
+
+# Development and test files
+.git/
+.gitignore
+.env.local
+.env.*.local
+*.log
+
+# Scripts and tools
+scripts/
+tools/
+Makefile
+
+# Documentation
+README*
+*.md
+docs/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

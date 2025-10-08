@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "notes": "Evaluation thresholds derived from UK Mass Evacuation Framework planning assumptions + public exercise/report sources. Values are bands, not guarantees.",
+  "common_metrics": {
+    "queue_len_p95_max": 200,
+    "platform_overcap_minutes_max": 120
+  },
+  "scenarios": {
+    "mass_flood_rwc": {
+      "description": "Reasonable worst-case fluvial flood affecting multiple boroughs",
+      "targets": {
+        "evacuees_total_expected": [130000, 170000],
+        "assisted_evacuees_expected": [50000, 60000],
+        "clearance_p95_minutes": [360, 480],
+        "clearance_p50_minutes": [180, 300],
+        "assisted_completion_rate": [0.90, 1.0],
+        "decision_latency_minutes_max": 60,
+        "scg_established_minutes_max": 180,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 120
+      },
+      "rationale": "Framework planning assumption for mass evacuation + phased approach timings; queue and platform limits are operational comfort bands, not hard law."
+    },
+    "chemical_sudden": {
+      "description": "Large sudden-impact chemical release with immediate cordons",
+      "targets": {
+        "people_affected_expected": [40000, 80000],
+        "clearance_p95_minutes": [240, 420],
+        "decision_latency_minutes_max": 30,
+        "self_evac_started_within_minutes_max": 15,
+        "queue_len_p95_max": 200,
+        "platform_overcap_minutes_max": 90
+      },
+      "rationale": "Sudden-impact doctrine: fast Police Strategic decisioning, rapid self-evacuation onset; platform limits tightened to manage contamination/meters."
+    },
+    "uxo_medium": {
+      "description": "Medium-scale planned UXO evacuation (rising-tide style)",
+      "targets": {
+        "people_affected_expected": [10000, 25000],
+        "clearance_p95_minutes": [180, 360],
+        "scg_established_minutes_max": 120,
+        "queue_len_p95_max": 150,
+        "platform_overcap_minutes_max": 60
+      },
+      "rationale": "Framework cites UXO as typical medium-scale; with planning time, smoother flows and lower crowding expected."
+    },
+    "local_gas_small": {
+      "description": "Small, borough-led local gas leak evacuation",
+      "targets": {
+        "people_affected_expected": [200, 1000],
+        "clearance_p95_minutes": [60, 180],
+        "queue_len_p95_max": 80,
+        "platform_overcap_minutes_max": 30
+      },
+      "rationale": "Small-scale incidents; local command; rapid clearance bands."
+    },
+    "central_terror_large": {
+      "description": "Large sudden-impact, multi-site cordons in central area",
+      "targets": {
+        "people_affected_expected": [60000, 100000],
+        "clearance_p95_minutes": [300, 540],
+        "decision_latency_minutes_max": 30,
+        "responder_absenteeism_prop_expected": [0.1, 0.2],
+        "queue_len_p95_max": 220,
+        "platform_overcap_minutes_max": 120
+      },
+      "rationale": "Self-evac surge, station metering, variable staffing; slightly looser queue band than chemical due to multi-node dispersal."
+    }
+  }
+}

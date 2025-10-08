@@ -1,0 +1,26 @@
+tiers:
+  - name: gov_primary
+    freshness_days: 7
+    sources:
+      - name: test_gov_uk
+        type: api
+        base: https://test.gov.uk
+        url: /api/content
+      - name: test_london_gov
+        type: rss
+        url: https://test.london.gov.uk/rss
+
+  - name: news_verified
+    freshness_days: 3
+    sources:
+      - name: test_bbc_news
+        type: rss
+        url: https://test.bbci.co.uk/news/rss.xml
+      - name: test_guardian
+        type: rss
+        url: https://test.theguardian.com/uk/rss
+
+policies:
+  max_docs_per_source: 10
+  min_confidence_score: 0.5
+  deduplication_threshold: 0.8

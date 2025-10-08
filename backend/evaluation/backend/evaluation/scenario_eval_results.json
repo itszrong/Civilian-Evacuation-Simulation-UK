@@ -1,0 +1,371 @@
+{
+  "num_evaluated": 6,
+  "aggregate_scores": {
+    "realism": {
+      "mean": 0.8,
+      "std": 0.0,
+      "min": 0.8,
+      "max": 0.8
+    },
+    "framework_compliance": {
+      "mean": 0.5,
+      "std": 0.125,
+      "min": 0.375,
+      "max": 0.625
+    },
+    "completeness": {
+      "mean": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "combined": {
+      "mean": 0.72,
+      "std": 0.05,
+      "min": 0.67,
+      "max": 0.77
+    }
+  },
+  "pass_rate": {
+    "realism": 1.0,
+    "framework_compliance": 0.0,
+    "completeness": 1.0,
+    "combined": 0.5
+  },
+  "detailed_results": [
+    {
+      "scenario_intent": "Thames fluvial flood \u2013 pan-London RWC",
+      "scores": {
+        "realism": 0.8,
+        "framework_compliance": 0.625,
+        "completeness": 1.0,
+        "combined": 0.77
+      },
+      "generated_scenario": {
+        "name": "Thames fluvial flood \u2013 pan-London RWC",
+        "hazard_type": "flood",
+        "scale": "mass",
+        "people_affected": 150000.0,
+        "duration_minutes": 1439.5,
+        "compliance": 0.5,
+        "modes": [
+          "walk",
+          "bus",
+          "rail",
+          "car",
+          "river"
+        ],
+        "warning_time": "rising_tide",
+        "governance": {
+          "SCG": true,
+          "ESCG": true,
+          "LLACC": true
+        }
+      },
+      "expected_properties": {
+        "scale": "mass",
+        "people_affected_range": [
+          120000,
+          180000
+        ],
+        "duration_minutes_range": [
+          1007,
+          1872
+        ],
+        "warning_time": "rising_tide",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car",
+          "river"
+        ]
+      },
+      "dspy_evaluation": {
+        "is_realistic": "True",
+        "framework_compliant": "True",
+        "quality_score": "8",
+        "issues": "Lack of detail on evacuation phases, no mention of assisted evacuees, no specific metrics for clearance times or decision latency.",
+        "recommendations": "Include details on evacuation phases, specify the number of assisted evacuees, provide metrics for clearance times and decision latency."
+      }
+    },
+    {
+      "scenario_intent": "Thames fluvial flood \u2013 pan-London RWC (low compliance)",
+      "scores": {
+        "realism": 0.8,
+        "framework_compliance": 0.625,
+        "completeness": 1.0,
+        "combined": 0.77
+      },
+      "generated_scenario": {
+        "name": "Thames fluvial flood \u2013 pan-London RWC (low compliance)",
+        "hazard_type": "flood",
+        "scale": "mass",
+        "people_affected": 150000.0,
+        "duration_minutes": 1439.5,
+        "compliance": 0.5,
+        "modes": [
+          "walk",
+          "bus",
+          "rail",
+          "car",
+          "river"
+        ],
+        "warning_time": "rising_tide",
+        "governance": {
+          "SCG": true,
+          "ESCG": true,
+          "LLACC": true
+        }
+      },
+      "expected_properties": {
+        "scale": "mass",
+        "people_affected_range": [
+          120000,
+          180000
+        ],
+        "duration_minutes_range": [
+          1007,
+          1872
+        ],
+        "warning_time": "rising_tide",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car",
+          "river"
+        ]
+      },
+      "dspy_evaluation": {
+        "is_realistic": "True",
+        "framework_compliant": "True",
+        "quality_score": "9",
+        "issues": "None",
+        "recommendations": "None"
+      }
+    },
+    {
+      "scenario_intent": "Central London chemical release \u2013 sudden impact",
+      "scores": {
+        "realism": 0.8,
+        "framework_compliance": 0.375,
+        "completeness": 1.0,
+        "combined": 0.67
+      },
+      "generated_scenario": {
+        "name": "Central London chemical release \u2013 sudden impact",
+        "hazard_type": "chemical",
+        "scale": "large",
+        "people_affected": 78000.0,
+        "duration_minutes": 480.0,
+        "compliance": 0.5,
+        "modes": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ],
+        "warning_time": "sudden_impact",
+        "governance": {}
+      },
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          62400,
+          93600
+        ],
+        "duration_minutes_range": [
+          336,
+          624
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "dspy_evaluation": {
+        "is_realistic": "True",
+        "framework_compliant": "True",
+        "quality_score": "9",
+        "issues": "None",
+        "recommendations": "Consider adding more details on governance and specific evacuation protocols to enhance the scenario."
+      }
+    },
+    {
+      "scenario_intent": "Central London chemical release \u2013 sudden impact (increased severity)",
+      "scores": {
+        "realism": 0.8,
+        "framework_compliance": 0.375,
+        "completeness": 1.0,
+        "combined": 0.67
+      },
+      "generated_scenario": {
+        "name": "Central London chemical release \u2013 sudden impact (increased severity)",
+        "hazard_type": "chemical",
+        "scale": "large",
+        "people_affected": 78000.0,
+        "duration_minutes": 480.0,
+        "compliance": 0.5,
+        "modes": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ],
+        "warning_time": "sudden_impact",
+        "governance": {}
+      },
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          62400,
+          93600
+        ],
+        "duration_minutes_range": [
+          336,
+          624
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "dspy_evaluation": {
+        "is_realistic": "True",
+        "framework_compliant": "True",
+        "quality_score": "9",
+        "issues": "None",
+        "recommendations": "None"
+      }
+    },
+    {
+      "scenario_intent": "Central London chemical release \u2013 sudden impact (low compliance)",
+      "scores": {
+        "realism": 0.8,
+        "framework_compliance": 0.375,
+        "completeness": 1.0,
+        "combined": 0.67
+      },
+      "generated_scenario": {
+        "name": "Central London chemical release \u2013 sudden impact (low compliance)",
+        "hazard_type": "chemical",
+        "scale": "large",
+        "people_affected": 78000.0,
+        "duration_minutes": 480.0,
+        "compliance": 0.5,
+        "modes": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ],
+        "warning_time": "sudden_impact",
+        "governance": {}
+      },
+      "expected_properties": {
+        "scale": "large",
+        "people_affected_range": [
+          62400,
+          93600
+        ],
+        "duration_minutes_range": [
+          336,
+          624
+        ],
+        "warning_time": "sudden_impact",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail",
+          "car"
+        ]
+      },
+      "dspy_evaluation": {
+        "is_realistic": "True",
+        "framework_compliant": "True",
+        "quality_score": "8",
+        "issues": "None identified",
+        "recommendations": "Consider providing more detailed governance information, enhance clarity on evacuation protocols, and ensure that all stakeholders are aware of the compliance measures."
+      }
+    },
+    {
+      "scenario_intent": "Docklands UXO cordon \u2013 planned lift and evacuate",
+      "scores": {
+        "realism": 0.8,
+        "framework_compliance": 0.625,
+        "completeness": 1.0,
+        "combined": 0.77
+      },
+      "generated_scenario": {
+        "name": "Docklands UXO cordon \u2013 planned lift and evacuate",
+        "hazard_type": "UXO",
+        "scale": "medium",
+        "people_affected": 18000.0,
+        "duration_minutes": 359.5,
+        "compliance": 0.5,
+        "modes": [
+          "walk",
+          "bus",
+          "rail"
+        ],
+        "warning_time": "planned",
+        "governance": {}
+      },
+      "expected_properties": {
+        "scale": "medium",
+        "people_affected_range": [
+          14400,
+          21600
+        ],
+        "duration_minutes_range": [
+          251,
+          468
+        ],
+        "warning_time": "planned",
+        "compliance_range": [
+          0.4,
+          0.6
+        ],
+        "modes_required": [
+          "walk",
+          "bus",
+          "rail"
+        ]
+      },
+      "dspy_evaluation": {
+        "is_realistic": "True",
+        "framework_compliant": "False",
+        "quality_score": "7",
+        "issues": "Empty governance section, lack of detailed phases, potential lack of CBRN protocols",
+        "recommendations": "Include governance details, outline specific phases of the evacuation, consider adding CBRN protocols if applicable"
+      }
+    }
+  ]
+}

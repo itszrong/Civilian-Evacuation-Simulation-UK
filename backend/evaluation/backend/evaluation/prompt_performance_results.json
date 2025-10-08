@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "generated_at": "2025-10-08T01:31:57.099047",
+    "num_prompts_evaluated": 6,
+    "pass_threshold": 0.7
+  },
+  "results": {
+    "Minimal (Poor)": {
+      "completeness": 0.5,
+      "realism": 0.6,
+      "framework_compliance": 0.25,
+      "combined": 0.43999999999999995
+    },
+    "Basic (Fair)": {
+      "completeness": 0.875,
+      "realism": 1.0,
+      "framework_compliance": 0.5,
+      "combined": 0.7750000000000001
+    },
+    "Detailed (Good)": {
+      "completeness": 1.0,
+      "realism": 1.0,
+      "framework_compliance": 1.0,
+      "combined": 1.0
+    },
+    "Framework (Very Good)": {
+      "completeness": 1.0,
+      "realism": 1.0,
+      "framework_compliance": 1.0,
+      "combined": 1.0
+    },
+    "Comprehensive (Excellent)": {
+      "completeness": 1.0,
+      "realism": 1.0,
+      "framework_compliance": 1.0,
+      "combined": 1.0
+    },
+    "Unrealistic (Bad)": {
+      "completeness": 0.875,
+      "realism": 0.2,
+      "framework_compliance": 0.25,
+      "combined": 0.35500000000000004
+    }
+  },
+  "summary": {
+    "realism": 0.7999999999999999,
+    "framework_compliance": 0.6666666666666666,
+    "completeness": 0.875,
+    "combined": 0.7616666666666667
+  },
+  "best_prompt": {
+    "name": "Detailed (Good)",
+    "score": 1.0
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "generated_at": "2025-10-08T01:30:09.250099",
+    "num_prompts_evaluated": 5,
+    "pass_threshold": 0.7
+  },
+  "results": {
+    "Baseline Prompt": {
+      "completeness": 1.0,
+      "realism": 1.0,
+      "framework_compliance": 1.0,
+      "combined": 1.0
+    },
+    "Detailed Prompt": {
+      "completeness": 1.0,
+      "realism": 1.0,
+      "framework_compliance": 1.0,
+      "combined": 1.0
+    },
+    "Framework-Guided": {
+      "completeness": 1.0,
+      "realism": 1.0,
+      "framework_compliance": 1.0,
+      "combined": 1.0
+    },
+    "Minimal Prompt": {
+      "completeness": 0.5,
+      "realism": 0.6,
+      "framework_compliance": 0.25,
+      "combined": 0.43999999999999995
+    },
+    "Optimized Prompt": {
+      "completeness": 1.0,
+      "realism": 1.0,
+      "framework_compliance": 1.0,
+      "combined": 1.0
+    }
+  },
+  "summary": {
+    "realism": 0.9199999999999999,
+    "framework_compliance": 0.85,
+    "completeness": 0.9,
+    "combined": 0.8879999999999999
+  },
+  "best_prompt": {
+    "name": "Baseline Prompt",
+    "score": 1.0
+  }
+}

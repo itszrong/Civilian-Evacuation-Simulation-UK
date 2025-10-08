@@ -1,0 +1,78 @@
+# London Evacuation Planning Tool - Essential Dependencies
+
+# Core FastAPI Framework
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Structured Logging
+structlog>=23.2.0
+
+# HTTP Client for Data Feeds
+httpx>=0.25.2
+aiohttp>=3.9.1
+
+# RSS Feed Parsing
+feedparser>=6.0.10
+
+# Graph Analysis (NetworkX - core, OSMnx - optional)
+networkx>=3.2.1
+osmnx>=1.6.0
+geopandas>=0.14.1
+shapely>=2.0.2
+folium>=0.15.0
+
+# Agent-Based Simulation (Mesa)
+mesa>=3.0.0
+mesa-geo>=0.7.0
+
+# Scientific Computing
+scipy>=1.11.0
+numpy>=1.24.0
+
+# Server-Sent Events
+sse-starlette>=1.8.2
+
+# Configuration and Environment
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+
+# JSON Handling
+orjson>=3.9.10
+
+# Date/Time Processing
+python-dateutil>=2.8.2
+
+# File Handling
+python-multipart>=0.0.6
+
+# Data Processing (minimal)
+numpy>=1.26.0
+pandas>=2.0.3
+
+# AI Dependencies for Emergency Planning
+dspy-ai>=2.4.0
+openai>=1.6.1
+anthropic>=0.8.0
+
+# Optional Geospatial Dependencies (install separately if needed)
+# osmnx>=1.6.0
+# geopandas>=0.14.1
+# shapely>=2.0.2
+# folium>=0.15.0
+
+# Optional Vector Search Dependencies (install separately if needed)
+# faiss-cpu>=1.8.0
+# chromadb>=0.5.0
+
+# Twilio for SMS and WhatsApp
+twilio>=8.12.0
+
+# Model Context Protocol
+mcp>=0.9.0
+
+# Development Dependencies
+pytest>=7.4.3
+pytest-asyncio>=0.21.1
+matplotlib

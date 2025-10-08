@@ -1,0 +1,23 @@
+{
+  "simulation_id": "comprehensive_demo",
+  "total_agents": 1000,
+  "clearance_metrics": {
+    "median_clearance_time_min": 57.51000976762366,
+    "p95_clearance_time_min": 101.97011368686204,
+    "mean_clearance_time_min": 58.856672619567995,
+    "std_clearance_time_min": 24.162109351732376,
+    "min_clearance_time_min": 7.861003193196787,
+    "max_clearance_time_min": 165.3991808644385
+  },
+  "route_metrics": {
+    "mean_route_length": 37.419,
+    "mean_speed_ms": 1.1933789251424605,
+    "mean_start_delay_min": 5.221596935936499
+  },
+  "original_metrics": {
+    "clearance_time": 0.0,
+    "max_queue": 0.0,
+    "fairness_index": 1.0,
+    "robustness": 0.8
+  }
+}

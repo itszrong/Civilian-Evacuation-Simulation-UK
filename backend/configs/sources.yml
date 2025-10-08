@@ -1,0 +1,47 @@
+# Allow-listed Data Sources Configuration
+# Following sovereign-by-design principles for London Evacuation Planning
+
+tiers:
+  - name: "gov_primary"
+    freshness_days: 30
+    sources:
+      - name: "GOV.UK Alerts"
+        type: "api"
+        url: "https://www.gov.uk/alerts"
+        description: "Government emergency alerts"
+        
+      - name: "TfL Service Updates"
+        type: "api"
+        url: "https://tfl.gov.uk/tube-dlr-overground/status/"
+        description: "Transport for London service updates"
+        
+      - name: "Environment Agency Flood Warnings"
+        type: "api"
+        url: "https://check-for-flooding.service.gov.uk/flood-risk-data"
+        description: "Official flood warnings and data"
+        
+      - name: "Met Office Weather Warnings"
+        type: "api"
+        url: "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings"
+        description: "Official weather warnings"
+
+  - name: "news_verified"
+    freshness_days: 7
+    sources:
+      - name: "BBC News London"
+        type: "rss"
+        url: "https://feeds.bbci.co.uk/news/england/london/rss.xml"
+        description: "BBC London news feed"
+        
+      - name: "Sky News London"
+        type: "rss"
+        url: "https://feeds.skynews.com/feeds/rss/uk.xml"
+        description: "Sky News UK feed"
+
+policies:
+  obey_robots: true
+  rate_limit_rpm: 30
+  user_agent: "LondonEvacBot/1.0"
+  timeout_seconds: 30
+  retry_attempts: 3
+  cache_ttl_hours: 1

@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "london-evacuation-planning": {
+      "command": "python",
+      "args": ["backend/mcp_server.py"],
+      "env": {
+        "TWILIO_ACCOUNT_SID": "${TWILIO_ACCOUNT_SID}",
+        "TWILIO_AUTH_TOKEN": "${TWILIO_AUTH_TOKEN}",
+        "TWILIO_SMS_NUMBER": "${TWILIO_SMS_NUMBER}",
+        "TWILIO_WHATSAPP_NUMBER": "${TWILIO_WHATSAPP_NUMBER}",
+        "GOVERNMENT_CONTACT_NUMBER": "${GOVERNMENT_CONTACT_NUMBER}"
+      },
+      "description": "London Evacuation Planning Tool - Emergency evacuation simulation and notification system for UK Government",
+      "capabilities": [
+        "run_evacuation_simulation",
+        "send_emergency_notification",
+        "send_evacuation_alert",
+        "compare_evacuation_scenarios",
+        "notify_simulation_complete"
+      ]
+    }
+  }
+}

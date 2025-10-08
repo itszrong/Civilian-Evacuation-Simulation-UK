@@ -1,0 +1,16 @@
+{
+  "name": "route_optimization_basic",
+  "timestamp": "2025-10-07T17:54:51.349611+00:00",
+  "input": {
+    "simulation_data": {
+      "num_routes": 10,
+      "avg_time": 45,
+      "success_rate": 0.95
+    },
+    "constraints": "City: London, Population: 500000"
+  },
+  "expected_output": {
+    "optimal_strategy": "Use multiple routes to distribute load",
+    "estimated_time": "45-60 minutes"
+  }
+}

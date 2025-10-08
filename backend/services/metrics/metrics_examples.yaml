@@ -1,0 +1,112 @@
+# Example Metrics Configurations
+# Simple YAML-based metric definitions for common evacuation metrics
+
+metrics:
+  # Evacuation completion metrics
+  clearance_p50:
+    source: timeseries
+    metric_key: clearance_pct
+    operation: percentile_time_to_threshold
+    args:
+      threshold_pct: 50
+    filters:
+      scope: city
+    post_process:
+      divide_by: 60  # Convert seconds to minutes
+      round_to: 1
+
+  clearance_p95:
+    source: timeseries
+    metric_key: clearance_pct
+    operation: percentile_time_to_threshold
+    args:
+      threshold_pct: 95
+    filters:
+      scope: city
+    post_process:
+      divide_by: 60
+      round_to: 1
+
+  # Queue and congestion metrics
+  max_queue_length:
+    source: timeseries
+    metric_key: queue_len
+    operation: max_value
+    filters:
+      scope_contains: "edge:"
+
+  avg_queue_length:
+    source: timeseries
+    metric_key: queue_len
+    operation: mean_value
+    filters:
+      scope_contains: "edge:"
+
+  # Platform density metrics
+  platform_overcrowding_time:
+    source: timeseries
+    metric_key: density
+    operation: time_above_threshold
+    args:
+      threshold: 4.0  # people per m²
+    filters:
+      scope_contains: "station"
+    post_process:
+      divide_by: 60  # Convert to minutes
+      round_to: 1
+
+  max_platform_density:
+    source: timeseries
+    metric_key: density
+    operation: max_value
+    filters:
+      scope_contains: "station"
+
+  # Event counting metrics
+  total_events:
+    source: events
+    operation: count_events
+
+  emergency_events:
+    source: events
+    operation: count_events
+    filters:
+      type: emergency
+
+  # Time-based metrics
+  evacuation_start_time:
+    source: timeseries
+    metric_key: clearance_pct
+    operation: percentile_time_to_threshold
+    args:
+      threshold_pct: 1  # When evacuation actually starts
+    filters:
+      scope: city
+
+  peak_evacuation_rate:
+    source: timeseries
+    metric_key: evacuation_rate
+    operation: max_value
+    filters:
+      scope: city
+
+# Grouped metrics (by borough, edge, etc.)
+grouped_metrics:
+  clearance_by_borough:
+    source: timeseries
+    metric_key: clearance_pct
+    operation: percentile_time_to_threshold
+    args:
+      threshold_pct: 95
+    group_by: borough
+    post_process:
+      divide_by: 60
+      round_to: 1
+
+  max_queue_by_edge:
+    source: timeseries
+    metric_key: queue_len
+    operation: max_value
+    group_by: scope
+    filters:
+      scope_contains: "edge:"
